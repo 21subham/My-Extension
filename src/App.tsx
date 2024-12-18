@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-// Define types for the media URLs
 interface Media {
   url: string;
   type: "image" | "video";
-  poster: string | undefined; // Make poster optional (string or undefined)
+  poster: string | undefined;
 }
 
 const App: React.FC = () => {
@@ -14,7 +13,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchMedia = () => {
-      // Check if the chrome API is available (i.e., running in a Chrome/Brave extension)
       if (typeof chrome !== "undefined" && chrome.tabs && chrome.scripting) {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           const activeTab = tabs[0];
@@ -45,7 +43,6 @@ const App: React.FC = () => {
           }
         });
       } else {
-        // If chrome API is not available, inform the user that it's only available for Chrome/Brave extensions
         setError("This feature is only available in a Chrome/Brave extension.");
         setLoading(false);
       }
