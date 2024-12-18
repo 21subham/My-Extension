@@ -1,2 +1,1 @@
-# My-Extension
-learning how to create a chrome extension
+Learning to create a chrome extension using react and vite
