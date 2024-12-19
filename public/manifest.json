@@ -1,19 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Media Downloader (Instagram & YouTube)",
-  "description": "Download media from Instagram and YouTube.",
+  "name": "Gmail Notifier",
   "version": "1.0",
-  "permissions": ["tabs", "activeTab", "scripting"],
+  "description": "Get notified of new Gmail emails.",
+  "permissions": ["identity", "notifications", "storage"],
+  "host_permissions": ["https://www.googleapis.com/*"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "index.html"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
     }
-  ]
+  },
+  "oauth2": {
+    "client_id": "113711155761-t3a5f5svd0gprbichuj42ffk90ev8vnl.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  }
 }
